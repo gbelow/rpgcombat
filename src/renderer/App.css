@@ -9,6 +9,8 @@ body {
   overflow-y: hidden;
   display: flex;
   justify-content: center;
+  background-image: url('./img/light-parchment.jpg');
+  background-size: cover;
 }
 
 button {

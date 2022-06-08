@@ -6,13 +6,14 @@ import Card from './components/Card/Card';
 import { useAppSelector } from './app/hooks';
 import Clock from './components/Clock/Clock';
 import TurnTracker from './components/TurnTracker/TurnTracker';
+import parchment from './img/parchment.jpg';
 
 function InitiativeTracker() {
   const creatures: Creature[] = useAppSelector(selectAllCreatures);
   const [turnTime, setTurnTime] = useState(60);
 
   return (
-    <div>
+    <div className="app">
       <div className="row">
         {/* <p>Turn Time</p>
         <input
@@ -35,7 +36,8 @@ function InitiativeTracker() {
           <Card key={el.id} id={el.id} last={creatures.length - 1 === i} />
         ))}
       </div>
-      <img src="./img/parchment.jpg" alt="" />
+
+      {/* <img src={parchment} alt="" /> */}
     </div>
   );
 }

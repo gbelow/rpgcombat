@@ -10,6 +10,11 @@ declare module '*.png' {
   export default content;
 }
 
+declare module '*.wav' {
+  const content: any;
+  export default content;
+}
+
 declare module '*.jpg' {
   const content: string;
   export default content;
