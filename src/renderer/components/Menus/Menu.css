@@ -1,0 +1,17 @@
+button {
+  opacity: 0.5;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-radius: 0px;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 75vh;
+}
+
+.menu-list::-webkit-scrollbar {
+  display: none;
+}

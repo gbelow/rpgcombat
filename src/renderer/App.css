@@ -7,15 +7,14 @@ body {
   height: 100vh;
   font-family: sans-serif;
   overflow-y: hidden;
-  display: flex;
-  justify-content: center;
+  margin: 0;
   background-image: url('./img/light-parchment.jpg');
   background-size: cover;
 }
 
 button {
-  background-color: white;
-  padding: 10px 20px;
+  background-color: rgb(252, 249, 249);
+  padding: 5px 10px;
   border-radius: 10px;
   border: none;
   appearance: none;
@@ -58,9 +57,24 @@ a:hover {
   display: flex;
   flex-direction: column;
   overflow: auto;
-  height: 500px;
+  height: 75vh;
 }
 
 .list::-webkit-scrollbar {
   display: none;
+}
+
+.time-input {
+  margin: auto;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
 }

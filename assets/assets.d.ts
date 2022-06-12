@@ -11,7 +11,7 @@ declare module '*.png' {
 }
 
 declare module '*.wav' {
-  const content: any;
+  const content: string;
   export default content;
 }
 

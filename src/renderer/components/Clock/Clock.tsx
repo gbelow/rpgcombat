@@ -29,7 +29,7 @@ export default function Clock({ turnTime }: Props): ReactElement {
   const prevTurn = usePrevious(turn);
 
   const pause = useCallback(() => {
-    if (timerOn) {
+    if (timerOn || time === 0) {
       clearInterval(timer.current);
       setTimerOn(false);
       audioRef.current?.pause();
@@ -37,7 +37,7 @@ export default function Clock({ turnTime }: Props): ReactElement {
       timer.current = setInterval(() => setTime(tick), 1000);
       setTimerOn(true);
     }
-  }, [timerOn]);
+  }, [timerOn, time]);
 
   const reset = useCallback(() => {
     setTime(turnTime);
@@ -46,10 +46,13 @@ export default function Clock({ turnTime }: Props): ReactElement {
     setTimerOn(true);
   }, [turnTime]);
 
-  const handleCDown = useCallback(
+  const handleSpaceDown = useCallback(
     (event: KeyboardEvent) => {
-      if (event.code === 'KeyC') {
-        pause();
+      if (event.code === 'Space') {
+        if ((event.target as HTMLElement).tagName !== 'INPUT') {
+          event.preventDefault();
+          pause();
+        }
       }
     },
     [pause]
@@ -58,19 +61,19 @@ export default function Clock({ turnTime }: Props): ReactElement {
   const handleRDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.code === 'KeyR') {
-        reset();
+        if ((event.target as HTMLElement).tagName !== 'INPUT') reset();
       }
     },
     [reset]
   );
 
   useEffect(() => {
-    window.addEventListener('keydown', handleCDown);
+    window.addEventListener('keydown', handleSpaceDown);
     window.addEventListener('keydown', handleRDown);
 
     // cleanup this component
     return () => {
-      window.removeEventListener('keydown', handleCDown);
+      window.removeEventListener('keydown', handleSpaceDown);
       window.removeEventListener('keydown', handleRDown);
     };
   });
@@ -84,7 +87,7 @@ export default function Clock({ turnTime }: Props): ReactElement {
     } else {
       audioRef.current?.pause();
     }
-  }, [time, timerOn]);
+  }, [time]);
 
   useEffect(() => {
     if (prevTurn !== turn) {
@@ -97,13 +100,8 @@ export default function Clock({ turnTime }: Props): ReactElement {
   return (
     <div className={styles.row}>
       <h2>clock: {time}</h2>
-      {/* <button type="button" onClick={pause} disabled>
-        {timerOn ? `pause` : 'start'}
-      </button>
-      <button type="button" onClick={reset}>
-        reset
-      </button> */}
-      <audio ref={audioRef} src={countdown}>
+      <audio ref={audioRef}>
+        <source src={countdown} type="audio/wav" />
         <track kind="captions" />
       </audio>
     </div>

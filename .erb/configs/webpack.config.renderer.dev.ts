@@ -98,7 +98,6 @@ const configuration: webpack.Configuration = {
       {
         test: /\.(wav)$/i,
         use: ['file-loader'],
-        type: 'asset/resource',
       },
     ],
   },

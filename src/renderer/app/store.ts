@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import creatureReducer from './creatureSlice';
 import combatReducer from './combatSlice';
+import controlReducer from './controlSlice';
 
 export const store = configureStore({
   reducer: {
     creature: creatureReducer,
     combat: combatReducer,
+    control: controlReducer,
   },
 });
 

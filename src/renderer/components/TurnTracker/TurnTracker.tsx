@@ -32,6 +32,7 @@ export default function TurnTracker() {
     <div>
       <button
         type="button"
+        style={{ marginRight: '3px' }}
         onClick={() => dispatch(startCombat(creatures[0].id))}
       >
         start combat
