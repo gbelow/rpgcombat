@@ -1,19 +1,16 @@
+import { MouseEventHandler } from 'react';
 import { Condition, MenuSelection, Spell } from 'renderer/app/controlSlice';
 
 interface MenuListInterface {
   selectedOption: MenuSelection;
-  handleOptionClick: (event: any) => void;
+  handleOptionClick: MouseEventHandler<HTMLButtonElement>;
   data: Spell[] | Condition[];
-  type: string;
-  currentTab: string;
 }
 
 export default function MenuList({
   selectedOption,
   handleOptionClick,
   data,
-  type,
-  currentTab,
 }: MenuListInterface) {
   return (
     <div
@@ -22,7 +19,6 @@ export default function MenuList({
         position: 'absolute',
         width: '20%',
         marginTop: '1rem',
-        visibility: type === currentTab ? 'visible' : 'hidden',
       }}
     >
       {data.map((el) => (

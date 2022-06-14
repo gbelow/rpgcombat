@@ -3,7 +3,19 @@ import type { RootState } from './store';
 import spells from '../img/spells.json';
 import conditions from '../img/conditions.json';
 
-export type Spell = typeof spells[0];
+export type Spell = {
+  name: string;
+  level?: string;
+  saving_throw?: string;
+  range?: string;
+  components?: string;
+  school?: string;
+  duration?: string;
+  casting_time?: string;
+  spell_resistance?: string;
+  target?: string;
+  description: string;
+};
 export type Condition = typeof conditions[0];
 
 export type MenuSelection = {

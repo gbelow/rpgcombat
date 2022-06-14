@@ -29,8 +29,16 @@ export default function Details() {
         height: '85vh',
       }}
     >
-      <SpellDetails details={currentSelectedItem.item} />
-      <ConditionDetails details={currentSelectedItem.item} />
+      {currentSelectedItem.type === 'spells' ? (
+        <SpellDetails details={currentSelectedItem.item} />
+      ) : (
+        ''
+      )}
+      {currentSelectedItem.type === 'conditions' ? (
+        <ConditionDetails details={currentSelectedItem.item} />
+      ) : (
+        ''
+      )}
     </div>
   );
 }
