@@ -17,18 +17,7 @@ export default function Details() {
   const currentSelectedItem = useAppSelector(selectCurrentSelection);
 
   return (
-    <div
-      className="list"
-      style={{
-        width: '25vw',
-        fontSize: '1rem',
-        borderLeft: 'solid',
-        borderLeftWidth: 3,
-        borderColor: '#555555',
-        padding: '5px',
-        height: '85vh',
-      }}
-    >
+    <div className="leftSidebar">
       {currentSelectedItem.type === 'spells' ? (
         <SpellDetails details={currentSelectedItem.item} />
       ) : (

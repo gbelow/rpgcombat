@@ -15,7 +15,9 @@ export default function TurnTracker() {
 
   const handleNDown = (event: KeyboardEvent) => {
     if (event.code === 'KeyN') {
-      dispatch(passTurn(nextTurn));
+      if ((event.target as HTMLElement).tagName !== 'INPUT') {
+        dispatch(passTurn(nextTurn));
+      }
     }
   };
 

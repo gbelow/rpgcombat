@@ -8,6 +8,17 @@ import './Menu.css';
 import MenuList from './MenuList';
 import conditions from '../../img/conditions.json';
 import spells from '../../img/spells.json';
+// import feats from '../../img/feats.json';
+
+// const f = feats.feats.map((el) => {
+//   const r = JSON.stringify(el.description);
+//   r.replace(/[^a-zA-Z0-9]/g, '');
+//   return {
+//     ...el,
+//     description: r.replace(/[^a-zA-Z0-9 ]/g, ''),
+//   };
+// });
+// console.log(f);
 
 const initialFilterState = {
   str: '',
@@ -73,7 +84,7 @@ export default function MainMenu() {
   return (
     <div
       style={{
-        width: '22vw',
+        width: '22%',
         fontSize: '0.75rem',
         borderRight: 'solid',
         borderRightWidth: 3,

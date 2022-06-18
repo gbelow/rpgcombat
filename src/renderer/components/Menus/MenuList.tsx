@@ -13,14 +13,7 @@ export default function MenuList({
   data,
 }: MenuListInterface) {
   return (
-    <div
-      className="menu-list"
-      style={{
-        position: 'absolute',
-        width: '20%',
-        marginTop: '1rem',
-      }}
-    >
+    <div className="menu-list">
       {data.map((el) => (
         <button
           type="button"

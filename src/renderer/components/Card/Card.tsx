@@ -26,16 +26,17 @@ export default function Card({ id = 0, last = true }: Props) {
   const isTurn = useAppSelector(selectCurrentTurn) === id;
 
   return (
-    <div
+    <tr
       className={styles.card}
       style={{
-        borderColor: isTurn ? '#ff0000' : '#000',
+        borderColor: isTurn ? '#c85533' : '#000',
         borderWidth: isTurn ? 3 : 1,
       }}
     >
-      <div className={styles.row}>
+      <td>
         <input
           type="text"
+          className={styles.txtIn}
           value={crit.name}
           onChange={({ target }) =>
             dispatch(
@@ -46,8 +47,13 @@ export default function Card({ id = 0, last = true }: Props) {
             )
           }
         />
+      </td>
+      <td>
         <input
           type="number"
+          min={-99}
+          max={999}
+          className={styles.numIn}
           value={crit.hp}
           onChange={({ target }) =>
             dispatch(
@@ -58,8 +64,13 @@ export default function Card({ id = 0, last = true }: Props) {
             )
           }
         />
+      </td>
+      <td>
         <input
           type="number"
+          min={-99}
+          max={999}
+          className={styles.numIn}
           value={crit.evasion}
           onChange={({ target }) =>
             dispatch(
@@ -70,8 +81,13 @@ export default function Card({ id = 0, last = true }: Props) {
             )
           }
         />
+      </td>
+      <td>
         <input
           type="number"
+          min={-99}
+          max={999}
+          className={styles.numIn}
           value={crit.deflection}
           onChange={({ target }) =>
             dispatch(
@@ -82,8 +98,13 @@ export default function Card({ id = 0, last = true }: Props) {
             )
           }
         />
+      </td>
+      <td>
         <input
           type="number"
+          min={-99}
+          max={999}
+          className={styles.numIn}
           value={crit.initiative}
           onChange={({ target }) =>
             dispatch(
@@ -94,7 +115,9 @@ export default function Card({ id = 0, last = true }: Props) {
             )
           }
         />
-        {!last ? (
+      </td>
+      {!last ? (
+        <td>
           <button
             className={styles.btn}
             type="button"
@@ -102,7 +125,9 @@ export default function Card({ id = 0, last = true }: Props) {
           >
             -
           </button>
-        ) : (
+        </td>
+      ) : (
+        <td>
           <button
             className={styles.btn}
             type="button"
@@ -112,8 +137,8 @@ export default function Card({ id = 0, last = true }: Props) {
           >
             +
           </button>
-        )}
-      </div>
-    </div>
+        </td>
+      )}
+    </tr>
   );
 }

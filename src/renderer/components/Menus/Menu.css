@@ -10,6 +10,7 @@ button {
   flex-direction: column;
   overflow: auto;
   height: 75vh;
+  position: absolute;
 }
 
 .menu-list::-webkit-scrollbar {

@@ -1,0 +1,7 @@
+Add clickable area on character to see details
+Make character details
+add effects to characters with timeout
+Add character creator and save
+Add feats to database
+Add cover, difficult terrain, counterspell to database
+Make option to play with homebrew or SRD.

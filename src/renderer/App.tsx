@@ -14,9 +14,9 @@ function InitiativeTracker() {
   const [turnTime, setTurnTime] = useState(60);
 
   return (
-    <div className="app">
+    <div className="container">
       <MainMenu />
-      <div className="col">
+      <div className="content">
         <div className="row">
           <div>
             <p>Turn Time</p>
@@ -32,17 +32,27 @@ function InitiativeTracker() {
           <Clock turnTime={turnTime} />
           <TurnTracker />
         </div>
-        <div className="row" style={{ fontWeight: 'bold' }}>
-          <p>name</p>
-          <p>hp</p>
-          <p>evasion</p>
-          <p>deflection</p>
-          <p>initiative</p>
-        </div>
         <div className="list">
-          {creatures.map((el, i) => (
-            <Card key={el.id} id={el.id} last={creatures.length - 1 === i} />
-          ))}
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>hp</th>
+                <th>evasion</th>
+                <th>deflection</th>
+                <th>initiative</th>
+              </tr>
+            </thead>
+            <tbody>
+              {creatures.map((el, i) => (
+                <Card
+                  key={el.id}
+                  id={el.id}
+                  last={creatures.length - 1 === i}
+                />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
       <Details />
